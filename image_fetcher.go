@@ -120,8 +120,6 @@ func findUrlsForWord(word string, consumer *oauth.Consumer, accessToken *oauth.A
 			"http://static.giantbomb.com/uploads/original/2/21249/899580-they_logo.jpg",
 			"http://us.cdn3.123rf.com/168nwm/qingwa/qingwa1110/qingwa111000237/11027373-the-word-they-carved-in-stone.jpg",
 			"http://www.theyrep.com/wp-content/uploads/2012/04/THEY-website-about.jpg"}
-	case "we":
-		return []string{"asdf"}
 	case "us":
 		return []string{"http://www.walsingham.com/sites/default/files/photosymbols/individuals.jpg",
 			"http://www.a2zscraplets.com.au/images/super/Us%20SCript%20Word.jpg"}
