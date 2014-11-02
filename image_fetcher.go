@@ -175,6 +175,15 @@ func findUrlsForWord(word string, consumer *oauth.Consumer, accessToken *oauth.A
 	case "let":
 		return []string{
 			"http://www.idiomsbykids.com/taylor/mrtaylor/class20022003/idioms/idioms2003/idioms5/let%20up..jpg"}
+	case "for":
+		return []string{
+			"http://www.eceeldek.com/logo_kurumsal/for_logo.jpg",
+			"http://itssoverycheri.com/wp-content/uploads/2014/08/4.jpeg",
+			"http://cdn.mundodastribos.com/673943-Curiosidades-sobre-o-ser-humano-que-voc%C3%AA-n%C3%A3o-sabe5.jpg"}
+	case "by":
+		return []string{
+			"http://rumol.org/wp-content/uploads/domen_by.jpg",
+			"http://idahobusinessreview.com/files/2014/02/20-something-waving-goodbye.jpg"}
 	}
 }
 
