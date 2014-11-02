@@ -70,10 +70,7 @@ func findUrlsForWord(word string, consumer *oauth.Consumer, accessToken *oauth.A
 			"http://freightlinersf.com/wp-content/uploads/2014/08/roasted-chicken-clipart-438.jpg",
 			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLnWzOLYIyXTewP-nT_kUYiqm-6sw49aX_ENS5gfVDLHPCU8gi6g"}
 	case "my":
-		return []string{"http://fc01.deviantart.net/fs71/i/2010/211/4/a/Little_My__by_swessu.jpg",
-			"http://webfoundation.org/wp-content/uploads/2012/12/myworldlogo.jpg",
-			"http://www.deafedge.com/image-files/basic-words-in-sign-language-my.jpg",
-			"http://images.clipartpanda.com/jitters-clipart-10715678-little-boy-with-your-escholar-itens-going-to-school.jpg"}
+		return []string{"http://fc01.deviantart.net/fs71/i/2010/211/4/a/Little_My__by_swessu.jpg"}
 	case "your":
 		return []string{"http://images.clipartof.com/Royalty-Free-RF-Clipart-Illustration-Of-A-Colorful-Your-Word-102478518.jpg",
 			"http://www.designindaba.com/sites/default/files/news/street_0.jpg",
