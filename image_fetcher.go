@@ -181,7 +181,7 @@ func findUrlsForWord(word string, consumer *oauth.Consumer, accessToken *oauth.A
 func getImageUrls(word string, consumer *oauth.Consumer, accessToken *oauth.AccessToken) []string {
 	response, err := consumer.Get(
 		"https://yboss.yahooapis.com/ysearch/images",
-		map[string]string{"q": word, "sites": "", "format": "json", "dimensions": "medium"},
+		map[string]string{"q": word, "sites": "", "format": "json", "dimensions": "medium", "count": "10"},
 		accessToken)
 	if err != nil {
 		log.Fatal(err)
