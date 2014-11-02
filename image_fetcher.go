@@ -46,7 +46,7 @@ func findUrlsForWord(word string, consumer *oauth.Consumer, accessToken *oauth.A
 	case "were":
 		return []string{"http://thumb7.shutterstock.com/display_pic_with_logo/890332/133260281/stock-photo-the-word-were-here-written-on-the-sand-as-the-background-133260281.jpg"}
 	case "is":
-		return []string{"http://www.indiescreen.us/wp-content/uploads/2013/03/IS-Logo-Box.jpg"}
+		return []string{"http://www.imageandsubstance.com.au/images/is_logo.gif"}
 	case "are":
 		return []string{"http://www.ncarb.org/~/media/Images/Widgets/are.jpg",
 			"http://thumb9.shutterstock.com/display_pic_with_logo/609856/168608942/stock-photo-letters-and-symbols-in-fire-letter-r-168608942.jpg",
