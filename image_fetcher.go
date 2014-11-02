@@ -178,7 +178,7 @@ func getImageUrls(word string, consumer *oauth.Consumer, accessToken *oauth.Acce
 	images := make([]string, 0, 35)
 	for i := range parsedResponse.BossResponse.Images.Results {
 		imageResult := parsedResponse.BossResponse.Images.Results[i]
-		if imageResult.Format == "jpeg" || imageResult.Format == "jpg"
+		if imageResult.Format == "jpeg" || imageResult.Format == "jpg" {
 			images = append(images, imageResult.Url)
 		}
 	}
