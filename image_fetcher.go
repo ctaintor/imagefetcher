@@ -67,7 +67,9 @@ func findUrlsForWord(word string, consumer *oauth.Consumer, accessToken *oauth.A
 			"https://lh3.ggpht.com/cgvbtpBknBOKkGaddXEtwjoVHcZff6ZMM1sKDTv2J7GLP_feCbOZ29_dVM3Ir_CNbg=w300",
 			"https://www.uni-muenster.de/imperia/md/images/ziv/layoutbilder/power.jpeg"}
 	case "of":
-		return []string{"http://i.imgur.com/vdDxTSZ.jpg"}
+		return []string{"http://i.imgur.com/vdDxTSZ.jpg",
+			"http://freightlinersf.com/wp-content/uploads/2014/08/roasted-chicken-clipart-438.jpg",
+			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLnWzOLYIyXTewP-nT_kUYiqm-6sw49aX_ENS5gfVDLHPCU8gi6g"}
 	case "my":
 		return []string{"http://fc01.deviantart.net/fs71/i/2010/211/4/a/Little_My__by_swessu.jpg",
 			"http://webfoundation.org/wp-content/uploads/2012/12/myworldlogo.jpg",
@@ -102,7 +104,8 @@ func findUrlsForWord(word string, consumer *oauth.Consumer, accessToken *oauth.A
 			"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTeVi392rLmG4arCzK-89-_ldS2dwXxFGmOCePvneoFx3ehujMl"}
 	case "you":
 		return []string{"http://cruciblecacophony.wikispaces.com/file/view/446px-Uncle_Sam_(pointing_finger).jpg/101768939/291x372/446px-Uncle_Sam_(pointing_finger).jpg",
-			"http://images.sodahead.com/polls/000865673/polls_You_Logo_Black_xlarge.jpeg"}
+			"http://images.sodahead.com/polls/000865673/polls_You_Logo_Black_xlarge.jpeg",
+			"http://biblestudyoutlines.org/wp-content/uploads/2012/08/argument-clipart-1024x896.jpg"}
 	case "he":
 		return []string{"http://thoughtsonleadership.biz/wp-content/uploads/2009/11/iStock_000007836244Medium-300x263.jpg",
 			"https://img0.etsystatic.com/000/0/5297554/il_fullxfull.251484430.jpg",
@@ -121,19 +124,60 @@ func findUrlsForWord(word string, consumer *oauth.Consumer, accessToken *oauth.A
 		return []string{"asdf"}
 	case "us":
 		return []string{"http://www.walsingham.com/sites/default/files/photosymbols/individuals.jpg",
-			"http://themthdegree.com/fresh-squeezed/hand-made-type/",
 			"http://www.a2zscraplets.com.au/images/super/Us%20SCript%20Word.jpg"}
 	case "in":
 		return []string{"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRzky1Q6VHt4GMgEcD5iLRc3dIcv_Lptye5bNvcuLEekZvjFWfG",
-			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUE1HfQa183x_RNqoWOGZ94HSq3sK-8NX5OlsNDFEI6oAeFzQU2Q"}
+			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUE1HfQa183x_RNqoWOGZ94HSq3sK-8NX5OlsNDFEI6oAeFzQU2Q",
+			"http://media-cdn.tripadvisor.com/media/photo-s/01/ca/34/9e/hollywood-inn-express.jpg"}
 	case "at":
 		return []string{"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQsjCD6VdYRqZVeWUeMbUa0ciYZe6ASeatFSFSp7D9o-651vhsA",
 			"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcREAXvJAAH4JjOIH5RyXTR-kPWLNgGAIn8yj7ei6njYAcf45qK9CA"}
 	case "that":
 		return []string{"http://homepage2.nifty.com/that/pict/that-uzu.jpg",
 			"http://1.bp.blogspot.com/-EVdkXyu7-uM/TbHDOJ2VcyI/AAAAAAAAOLE/_y5-rz-Nglk/s1600/t7.jpg"}
+	case "if":
+		return []string{"http://salmanshaheen.com/wp-content/uploads/2013/01/MDG-IF-campaign-against-009.jpg",
+			"http://www.exceltraining.org.uk/excel-training-images/excel-if-statement.jpg",
+			"http://upload.wikimedia.org/wikipedia/en/1/15/Msi_if_cover.jpg",
+			"http://www.meg.ie/wp-content/uploads/2011/11/billryderjones_if_big.jpg"}
+	case "else":
+		return []string{"http://www.pretamarque.com/wp-content/uploads/2012/04/Joes-Jeans-Else.jpeg"}
+	case "where":
+		return []string{"http://m5.paperblog.com/i/6/61771/how-to-prepare-for-a-trip-L-HTeG64.jpeg",
+			"http://4.bp.blogspot.com/_S3TFiuLoYtg/S_PdfSptbZI/AAAAAAAAAMk/nRrI4LB-3dc/s1600/Where+to+start.jpg",
+			"http://sr.photos3.fotosearch.com/bthumb/CSP/CSP571/k5718115.jpg"}
+	case "how":
+		return []string{"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQojQilbSXMxich1CQTdgo3_v6HYYpnjlqzEeBVTxmS4aJJPefu1g",
+			"http://ec.l.thumbs.canstockphoto.com/canstock7517808.jpg"}
+	case "do":
+		return []string{"http://venturebeat.files.wordpress.com/2011/11/do-com-logo.jpg",
+			"http://www-cdf.fnal.gov/~canelli/gif_jpg/d0_ii.jpg",
+			"http://payload.cargocollective.com/1/2/71370/857585/Do_Logo_800.jpg"}
+	case "what":
+		return []string{"https://patrecia1939.files.wordpress.com/2013/04/royalty-free-confused-clipart-illustration-215206.jpg",
+			"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRb44ObPb1-o-bI4QunDTFK33bgU-6Hau62dlAOGDjxw_m0E0ms",
+			"http://images.clipartpanda.com/confusion-clipart-royalty-free-confused-clipart-illustration-215196.jpg"}
+	case "who":
+		return []string{"http://www.lsac-lb.org/upload/homepage/profile-photo.jpg"}
+	case "why":
+		return []string{"http://generic.pixmac.com/4/cartoon-gorilla-scratching-his-head-cute-clipart-87469570.jpg",
+			"http://www.clipartguide.com/_named_clipart_images/0511-1111-0316-0745_Funny_Looking_Cartoon_Man_with_the_Question_Scratching_His_Head_clipart_image.jpg",
+			"http://www.clipartbest.com/cliparts/RTA/kb8/RTAkb8kTL.jpeg"}
+	case "we":
+		return []string{"http://www.fitnessblender.com/media/uploads/article-images/m_wii_console.jpg",
+			"http://fc07.deviantart.net/fs44/i/2009/096/d/1/Just_ME_and_YOU_by_Add1ct3d.jpg",
+			"http://www.wetheworld.org/img/we.jpg",
+			"http://i301.photobucket.com/albums/nn44/pdubbleyah/weeee.jpg"}
+	case "when":
+		return []string{"http://i.kinja-img.com/gawker-media/image/upload/s--tx7OMnHv--/18fbt8v3pearxjpg.jpg",
+			"http://www.suitqaisdiaries.com/wp-content/uploads/2013/12/Carpe-Diem-When.jpg"}
+	case "as":
+		return []string{"http://integrationacres.com/products/images/goat_1.jpg",
+			"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQVNSsuOvLaSE48k-WMq7qKubBgCwxQHbsjkf_0uQtCI2Q05hy7"}
+	case "let":
+		return []string{
+			"http://www.idiomsbykids.com/taylor/mrtaylor/class20022003/idioms/idioms2003/idioms5/let%20up..jpg"}
 	}
-
 }
 
 func getImageUrls(word string, consumer *oauth.Consumer, accessToken *oauth.AccessToken) []string {
