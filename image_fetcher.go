@@ -3,6 +3,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/go-martini/martini"
 	"io/ioutil"
 	"log"
@@ -29,10 +30,22 @@ type bossImageResult struct {
 	Format string `json:"format"`
 }
 
-func findUrlsForWord(word string, consumer *oauth.Consumer, accessToken *oauth.AccessToken) []string {
+func getAccessToken() *oauth.AccessToken {
+	accessToken := oauth.AccessToken{}
+	fileData, _ := ioutil.ReadFile("accessToken.json")
+	json.NewDecoder(strings.NewReader(string(fileData))).Decode(&accessToken)
+	return &accessToken
+}
+
+func saveAccessToken(accessToken oauth.AccessToken) {
+	bytes, _ := json.Marshal(accessToken)
+	ioutil.WriteFile("accessToken.json", bytes, 0644)
+}
+
+func findUrlsForWord(word string, consumer *oauth.Consumer) []string {
 	switch word {
 	default:
-		return getImageUrls(word, consumer, accessToken)
+		return getImageUrls(word, consumer)
 	case "to":
 		return []string{"http://health.businessweekly.com.tw/images/Columns/0030.jpg",
 			"https://dpstprenursery.files.wordpress.com/2013/06/numero-2-letras-y-numeros-numeros-pintado-por-johnnathan-97395131.jpg"}
@@ -183,15 +196,31 @@ func findUrlsForWord(word string, consumer *oauth.Consumer, accessToken *oauth.A
 	}
 }
 
-func getImageUrls(word string, consumer *oauth.Consumer, accessToken *oauth.AccessToken) []string {
+func getImageUrls(word string, consumer *oauth.Consumer) []string {
+	accessToken := getAccessToken()
 	response, err := consumer.Get(
 		"https://yboss.yahooapis.com/ysearch/images",
 		map[string]string{"q": word, "sites": "", "format": "json", "dimensions": "medium", "count": "10"},
 		accessToken)
-	if err != nil {
-		log.Fatal(err)
-	}
 	defer response.Body.Close()
+
+	if err != nil {
+		httpError, ok := err.(oauth.HTTPExecuteError)
+		if ok && httpError.Status == "401 Authorization Required" {
+			fmt.Println("We want to refresh!")
+			newToken, err := consumer.RefreshToken(accessToken)
+			if err != nil {
+				log.Fatal(err)
+			}
+			saveAccessToken(*newToken)
+			accessToken = newToken
+			response, err := consumer.Get(
+				"https://yboss.yahooapis.com/ysearch/images",
+				map[string]string{"q": word, "sites": "", "format": "json", "dimensions": "medium", "count": "10"},
+				accessToken)
+			defer response.Body.Close()
+		}
+	}
 
 	unparsedResponse, err := ioutil.ReadAll(response.Body)
 
@@ -219,17 +248,11 @@ func main() {
 			AccessTokenUrl:    "https://api.login.yahoo.com/oauth/v2/get_token",
 		})
 
-	accessToken := &oauth.AccessToken{}
-	accessToken.Token = os.Getenv("ACCESS_TOKEN")
-	accessToken.Secret = os.Getenv("TOKEN_SECRET")
-	accessToken.AdditionalData = map[string]string{"oauth_expires_in": "3600", "oauth_session_handle": os.Getenv("SESSION_HANDLE"), "oauth_authorization_expires_in": "732555938", "xoauth_yahoo_guid": os.Getenv("YAHOO_GUID")}
-
 	m := martini.Classic()
 
-	//curl -X POST  -k -u token: "http://localhost:3000/get_image.json" -d '{"urls": ["http://talks.golang.org/2013/advconc/gopherswim.jpg", "http://www.unixstickers.com/image/cache/data/stickers/golang/golang.sh-600x600.png"], "height_px": 400}' > test.png
 	m.Get("/v1/imageUrls/:word", func(params martini.Params) []byte {
 
-		imageUrls := findUrlsForWord(params["word"], c, accessToken)
+		imageUrls := findUrlsForWord(params["word"], c)
 
 		jsonString, _ := json.Marshal(imageUrls)
 
